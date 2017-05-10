@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/load_data.iml" filepath="$PROJECT_DIR$/.idea/modules/load_data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/load_data_main.iml" filepath="$PROJECT_DIR$/.idea/modules/load_data_main.iml" group="load_data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/load_data_test.iml" filepath="$PROJECT_DIR$/.idea/modules/load_data_test.iml" group="load_data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_main.iml" group="sandbox" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_test.iml" group="sandbox" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/users.iml" filepath="$PROJECT_DIR$/.idea/modules/users.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/users_main.iml" filepath="$PROJECT_DIR$/.idea/modules/users_main.iml" group="users" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/users_test.iml" filepath="$PROJECT_DIR$/.idea/modules/users_test.iml" group="users" />
+    </modules>
+  </component>
+</project>
