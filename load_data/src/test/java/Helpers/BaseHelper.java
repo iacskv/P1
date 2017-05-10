@@ -9,7 +9,9 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -17,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseHelper {
     public FirefoxDriver wd;
 
-    @BeforeMethod
+    @BeforeSuite
     public void setUp() throws Exception {
         FirefoxBinary binary = new FirefoxBinary(new File("D:\\Program Files\\Mozilla Firefox\\firefox.exe"));
         wd = new FirefoxDriver(binary, new FirefoxProfile());
@@ -31,7 +33,7 @@ public class BaseHelper {
 
     }
 
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         wd.quit();
     }

@@ -31,7 +31,7 @@ public class LoadDataHelper extends BaseHelper{
 
             a = js.executeScript("return document.getElementById('x-auto-38-input').getAttributeNode('class').ownerElement.value;").toString();
             i++;
-            if (i> 1000){
+            if (i> 100000){
                 return "Не дождались";
             }
         }

@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -19,19 +20,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class LoadNewDocGroup extends LoadDataHelper {
 
-    
+
     @DataProvider
-    public Iterator<Object[]> validDoc(){
+    public Iterator<Object[]> validDoc() throws IOException {
         List<Object[]> list = new ArrayList<Object[]>();
-        list.add(new Object[]{"Книга записей актов (2000-2003)","Запись акта о рождении","2003","Адмиралтейский (1994-2003)","1","1"});
+        //list.add(new Object[]{new DocForLoad("Книга записей актов (2000-2003)","Запись акта о рождении","2003","Адмиралтейский (1994-2003)","1","1")});
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/LOAD_BORN_ADMIR_KRON_OUT.txt")));
+        String line = reader.readLine();
+        while (line != null){
+            String[] split = line.split(";");
+            list.add(new Object[]{new DocForLoad(split[0],split[1], split[2], split[3],split[4],split[5])});
+            line = reader.readLine();
+        }
         return list.iterator();
+
     }
 
     @Test (dataProvider = "validDoc")
-    public void testLoadNewDocGroup(String type_doc, String type_ags, String year, String type_zags, String f_num, String l_num) throws InterruptedException {
-
-        DocForLoad doc = new DocForLoad(type_doc, type_ags, year, type_zags, f_num, l_num);
-
+    public void testLoadNewDocGroup(DocForLoad docAtt) throws InterruptedException {
 
         //вкладка площадка ввода
         click(PVV_SPAN);
@@ -41,29 +47,29 @@ public class LoadNewDocGroup extends LoadDataHelper {
 
         // выбор типа книги
         click(TYPE_DOC);
-        click("//div[8]/div/div[text()='"+ doc.type_doc + "']");//по пункту списка (200-2003)
+        click("//div[8]/div/div[text()='"+ docAtt.type_doc + "']");//по пункту списка (200-2003)
 
         // выбор типа АГС
         click(TYPE_AGS);
-        click("//div[8]/div/div[text()='" + doc.type_ags + "']");//рождение
+        click("//div[8]/div/div[text()='" + docAtt.type_ags + "']");//рождение
 
         //выбор года
         click(YEAR);
-        click("//div[8]/div/div[text()='" + doc.year + "']");//2003
+        click("//div[8]/div/div[text()='" + docAtt.year + "']");//2003
 
         // выбор ЗАГС
         click(TYPE_ZAGS);
-        click("//div[8]/div/div[text()='" + doc.type_zags + "']");//адмиралтейский
+        click("//div[8]/div/div[text()='" + docAtt.type_zags + "']");//адмиралтейский
 
         //ввод первого номера
-        type(F_NUM,f_num);
+        type(F_NUM,docAtt.f_num);
 
         //ввод последнего номера
-        type(L_NUM, l_num);
+        type(L_NUM, docAtt.l_num);
 
         //клик по кнопке загрузка
         Thread.sleep(1000);
-        System.out.println(wd.findElementByXPath("html/body/div[1]/div/div[2]/div/table/tbody/tr/td[1]/fieldset/div/div/div[2]/div[2]/div/div[1]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr[2]/td[2]/em/button").getAttribute("aria-disabled"));
+        //System.out.println(wd.findElementByXPath("html/body/div[1]/div/div[2]/div/table/tbody/tr/td[1]/fieldset/div/div/div[2]/div[2]/div/div[1]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr[2]/td[2]/em/button").getAttribute("aria-disabled"));
         click(LOAD_RUN_BTN);
 
         //проверка текста в поле ЛОог загрузки
@@ -75,7 +81,6 @@ public class LoadNewDocGroup extends LoadDataHelper {
         assertThat(textarea, startsWith("Загрузка запущена"));
         System.out.println(textarea);
 
-        //шлогрлдцощлиоуцка
 
      }
 
