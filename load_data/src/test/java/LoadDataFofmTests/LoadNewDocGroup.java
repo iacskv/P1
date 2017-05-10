@@ -1,8 +1,14 @@
 package LoadDataFofmTests;
 
 import Helpers.LoadDataHelper;
+import model.DocForLoad;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static Locators.LoadDataFormLocators.*;
 import static org.hamcrest.CoreMatchers.startsWith;
@@ -13,8 +19,18 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class LoadNewDocGroup extends LoadDataHelper {
 
-        @Test
-    public void testLoadNewDocGroup() throws InterruptedException {
+    
+    @DataProvider
+    public Iterator<Object[]> validDoc(){
+        List<Object[]> list = new ArrayList<Object[]>();
+        list.add(new Object[]{"Книга записей актов (2000-2003)","Запись акта о рождении","2003","Адмиралтейский (1994-2003)","1","1"});
+        return list.iterator();
+    }
+
+    @Test (dataProvider = "validDoc")
+    public void testLoadNewDocGroup(String type_doc, String type_ags, String year, String type_zags, String f_num, String l_num) throws InterruptedException {
+
+        DocForLoad doc = new DocForLoad(type_doc, type_ags, year, type_zags, f_num, l_num);
 
 
         //вкладка площадка ввода
@@ -25,25 +41,25 @@ public class LoadNewDocGroup extends LoadDataHelper {
 
         // выбор типа книги
         click(TYPE_DOC);
-        click("//div[8]/div/div");//по пункту списка (200-2003)
+        click("//div[8]/div/div[text()='"+ doc.type_doc + "']");//по пункту списка (200-2003)
 
         // выбор типа АГС
         click(TYPE_AGS);
-        click("//div[8]/div/div[4]");//рождение
+        click("//div[8]/div/div[text()='" + doc.type_ags + "']");//рождение
 
         //выбор года
         click(YEAR);
-        click("//div[8]/div/div[1]");//2003
+        click("//div[8]/div/div[text()='" + doc.year + "']");//2003
 
         // выбор ЗАГС
         click(TYPE_ZAGS);
-        click("//div[8]/div/div[1]");//адмиралтейский
+        click("//div[8]/div/div[text()='" + doc.type_zags + "']");//адмиралтейский
 
         //ввод первого номера
-        type(F_NUM,"1");
+        type(F_NUM,f_num);
 
         //ввод последнего номера
-        type(L_NUM, "1");
+        type(L_NUM, l_num);
 
         //клик по кнопке загрузка
         Thread.sleep(1000);

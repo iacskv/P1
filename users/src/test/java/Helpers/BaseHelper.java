@@ -57,4 +57,6 @@ public class BaseHelper {
         wd.findElement(By.xpath(fildPas)).sendKeys(passUser);
         wd.findElement(By.xpath(submitLoginButton)).click();
     }
+
+
 }
