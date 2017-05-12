@@ -11,7 +11,7 @@ public class DocForLoad {
     public final String f_num;
     public final String l_num;
 
-    public DocForLoad(String type_zags,  String type_ags, String year,  String type_doc, String f_num, String l_num) {
+    public DocForLoad(String type_zags, String type_ags, String year, String type_doc, String f_num, String l_num) {
 
         this.type_doc = type_doc;
         this.type_ags = type_ags;
@@ -32,4 +32,5 @@ public class DocForLoad {
                 ", l_num='" + l_num + '\'' +
                 '}';
     }
+
 }

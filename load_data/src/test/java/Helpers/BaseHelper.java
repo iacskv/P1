@@ -8,9 +8,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
@@ -27,8 +25,6 @@ public class BaseHelper {
 
         wd.get("http://pvvdev-app.dev.zags.adc.vpn:8080/login");
         login("admin", "admin");
-
-
 
 
     }

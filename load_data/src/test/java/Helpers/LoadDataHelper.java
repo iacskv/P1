@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by k.smotrov on 03.05.2017.
  */
-public class LoadDataHelper extends BaseHelper{
+public class LoadDataHelper extends BaseHelper {
 
     public Wait<WebDriver> wait;
 
@@ -21,17 +21,15 @@ public class LoadDataHelper extends BaseHelper{
     }
 
 
-
-
     public String waitingLogText() {
         int i = 0;
-        String a="";
-        JavascriptExecutor js = (JavascriptExecutor)wd;
-        while ( a.equals("")  ){
+        String a = "";
+        JavascriptExecutor js = (JavascriptExecutor) wd;
+        while (a.equals("")) {
 
             a = js.executeScript("return document.getElementById('x-auto-38-input').getAttributeNode('class').ownerElement.value;").toString();
             i++;
-            if (i> 100000){
+            if (i > 100000) {
                 return "Не дождались";
             }
         }

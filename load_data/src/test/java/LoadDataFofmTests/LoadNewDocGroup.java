@@ -27,16 +27,16 @@ public class LoadNewDocGroup extends LoadDataHelper {
         //list.add(new Object[]{new DocForLoad("Книга записей актов (2000-2003)","Запись акта о рождении","2003","Адмиралтейский (1994-2003)","1","1")});
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/LOAD_BORN_ADMIR_KRON_OUT.txt")));
         String line = reader.readLine();
-        while (line != null){
+        while (line != null) {
             String[] split = line.split(";");
-            list.add(new Object[]{new DocForLoad(split[0],split[1], split[2], split[3],split[4],split[5])});
+            list.add(new Object[]{new DocForLoad(split[0], split[1], split[2], split[3], split[4], split[5])});
             line = reader.readLine();
         }
         return list.iterator();
 
     }
 
-    @Test (dataProvider = "validDoc")
+    @Test(dataProvider = "validDoc")
     public void testLoadNewDocGroup(DocForLoad docAtt) throws InterruptedException {
 
         //вкладка площадка ввода
@@ -47,7 +47,7 @@ public class LoadNewDocGroup extends LoadDataHelper {
 
         // выбор типа книги
         click(TYPE_DOC);
-        click("//div[8]/div/div[text()='"+ docAtt.type_doc + "']");//по пункту списка (200-2003)
+        click("//div[8]/div/div[text()='" + docAtt.type_doc + "']");//по пункту списка (200-2003)
 
         // выбор типа АГС
         click(TYPE_AGS);
@@ -62,26 +62,27 @@ public class LoadNewDocGroup extends LoadDataHelper {
         click("//div[8]/div/div[text()='" + docAtt.type_zags + "']");//адмиралтейский
 
         //ввод первого номера
-        type(F_NUM,docAtt.f_num);
+        type(F_NUM, docAtt.f_num);
 
         //ввод последнего номера
         type(L_NUM, docAtt.l_num);
 
         //клик по кнопке загрузка
         Thread.sleep(1000);
-        //System.out.println(wd.findElementByXPath("html/body/div[1]/div/div[2]/div/table/tbody/tr/td[1]/fieldset/div/div/div[2]/div[2]/div/div[1]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr[2]/td[2]/em/button").getAttribute("aria-disabled"));
         click(LOAD_RUN_BTN);
 
-        //проверка текста в поле ЛОог загрузки
-        //Thread.sleep(3000);
+        //проверка текста в поле Лог загрузки
+
         waitingLogText();
 
-        JavascriptExecutor js = (JavascriptExecutor)wd;
+        JavascriptExecutor js = (JavascriptExecutor) wd;
         String textarea = waitingLogText();
         assertThat(textarea, startsWith("Загрузка запущена"));
         System.out.println(textarea);
 
 
-     }
+
+
+    }
 
 }
