@@ -4,32 +4,83 @@ package model;
  * Created by k.smotrov on 10.05.2017.
  */
 public class DocForLoad {
-    public final String type_doc;
-    public final String type_ags;
-    public final String year;
-    public final String type_zags;
-    public final String f_num;
-    public final String l_num;
+    public String typeDoc;
+    public String typeAgs;
+    public String year;
+    public String typeZags;
+    public String fNum;
+    public String lNum;
 
-    public DocForLoad(String type_zags, String type_ags, String year, String type_doc, String f_num, String l_num) {
 
-        this.type_doc = type_doc;
-        this.type_ags = type_ags;
+
+    public String getTypeDoc() {
+
+        return typeDoc;
+    }
+
+    public String getTypeAgs() {
+        return typeAgs;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getTypeZags() {
+        return typeZags;
+    }
+
+    public String getfNum() {
+        return fNum;
+    }
+
+    public String getlNum() {
+        return lNum;
+    }
+
+    public void setfNum(String fNum) {
+        this.fNum = fNum;
+    }
+
+    public void setlNum(String lNum) {
+        this.lNum = lNum;
+    }
+
+    public void setTypeDoc(String typeDoc) {
+        this.typeDoc = typeDoc;
+    }
+
+    public void setTypeAgs(String typeAgs) {
+        this.typeAgs = typeAgs;
+    }
+
+    public void setYear(String year) {
         this.year = year;
-        this.type_zags = type_zags;
-        this.f_num = f_num;
-        this.l_num = l_num;
+    }
+
+    public void setTypeZags(String typeZags) {
+        this.typeZags = typeZags;
+    }
+
+    public DocForLoad(String typeZags, String typeAgs, String year, String typeDoc, String fNum, String lNum) {
+
+        this.typeDoc = typeDoc;
+        this.typeAgs = typeAgs;
+        this.year = year;
+        this.typeZags = typeZags;
+        this.fNum = fNum;
+        this.lNum = lNum;
     }
 
     @Override
     public String toString() {
         return "DocForLoad{" +
-                "type_doc='" + type_doc + '\'' +
-                ", type_ags='" + type_ags + '\'' +
+                "typeDoc='" + typeDoc + '\'' +
+                ", typeAgs='" + typeAgs + '\'' +
                 ", year='" + year + '\'' +
-                ", type_zags='" + type_zags + '\'' +
-                ", f_num='" + f_num + '\'' +
-                ", l_num='" + l_num + '\'' +
+                ", typeZags='" + typeZags + '\'' +
+                ", fNum='" + fNum + '\'' +
+                ", lNum='" + lNum + '\'' +
                 '}';
     }
 

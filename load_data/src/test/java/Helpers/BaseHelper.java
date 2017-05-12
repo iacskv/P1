@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class BaseHelper {
-    public FirefoxDriver wd;
+    public static FirefoxDriver wd;
 
     @BeforeSuite
     public void setUp() throws Exception {
@@ -29,7 +29,7 @@ public class BaseHelper {
 
     }
 
-    @AfterSuite
+    @AfterSuite (alwaysRun = true)
     public void tearDown() {
         wd.quit();
     }

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  */
 public class DbTest {
 
-    @Test
+    @Test (enabled = false)
     public void dbTest(){
         DbHelper.jdbcTemplate().queryForObject("select 1 from dual",Long.class);
     }

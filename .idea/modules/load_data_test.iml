@@ -7,9 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../load_data/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../load_data/src/test/resources" type="java-test-resource" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.seleniumhq.selenium:selenium-firefox-driver:2.53.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.seleniumhq.selenium:selenium-ie-driver:2.53.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: net.java.dev.jna:jna:4.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.seleniumhq.selenium:selenium-support:2.53.1" level="project" />
@@ -63,8 +62,9 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: xalan:serializer:2.7.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.yaml:snakeyaml:1.17" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.seleniumhq.selenium:htmlunit-driver:2.21" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: mysql:mysql-connector-java:6.0.6" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.seleniumhq.selenium:selenium-firefox-driver:2.53.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework:spring-asm:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: mysql:mysql-connector-java:6.0.6" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="load_data_main" />
 </module>
