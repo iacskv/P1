@@ -1,24 +1,17 @@
-package Helpers;
-
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
-
 /**
- * Created by k.smotrov on 11.05.2017.
+ * Created by k.smotrov on 15.05.2017.
  */
-public class DbHelper {
+public class App {
     private static DataSource dataSource;
     private static String inputarenaJdbcUrl = "jdbc:oracle:thin:@pvvdev-db.dev.zagz.adc.spb:1521:pvvdev";
     private static String inputarenaJdbcUsername = "inputarena";
     private static String inputarenaJdbcPassword = "inputarena";
     private static String inputarenaJdbcClass = "oracle.jdbc.driver.OracleDriver";
-
-    protected DbHelper() {
-    }
 
     private static DataSource getDataSource() {
 
@@ -39,7 +32,11 @@ public class DbHelper {
         return dataSource;
     }
 
-    public static JdbcTemplate jdbcTemplate(){
-        return new JdbcTemplate(getDataSource());
+//    public static JdbcTemplate jdbcTemplate(){
+//        return new JdbcTemplate(getDataSource());
+//    }
+    public static void main(String[] args) {
+        getDataSource();
+
     }
 }

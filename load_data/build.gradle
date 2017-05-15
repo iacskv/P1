@@ -15,7 +15,8 @@ dependencies {
 
     //мазуров made
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
-    compile 'com.oracle:ojdbc6:11.2.0.3'
+//    compile 'com.oracle:ojdbc6:11.2.0.3'
+    compile group: 'oracle', name: 'ojdbc6', version: '11.2.0.3'
     compile 'com.zaxxer:HikariCP:2.5.1'
     compile group: 'org.springframework', name: 'spring-jdbc', version: '3.1.0.RELEASE'
 
