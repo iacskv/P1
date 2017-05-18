@@ -23,7 +23,7 @@ public class BaseHelper {
         wd = new FirefoxDriver(binary, new FirefoxProfile());
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        wd.get("http://pvvdev-app.dev.zags.adc.vpn:8080/login");
+        wd.get("http://app.dev.pvv.zags.adc.vpn:8080/login");
         login("admin", "admin");
 
 

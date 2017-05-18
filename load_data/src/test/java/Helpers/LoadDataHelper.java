@@ -85,13 +85,13 @@ public class LoadDataHelper extends BaseHelper {
 
     protected void checkFNumFieldAlert() {
         assertThat(wd.findElement(By.xpath(F_NUM_ALRT)), notNullValue());
-        System.out.println("Начальный номер = " + docAttr.fNum);
+
         System.out.println("алерт поля 'Начальный номер' на месте");
     }
 
     protected void checkLNumFieldAlert() {
         assertThat(wd.findElement(By.xpath(L_NUM_ALRT)), notNullValue());
-        System.out.println("Конечный номер = " + docAttr.lNum);
+
         System.out.println("алерт поля 'Конечный номер' на месте");
     }
 

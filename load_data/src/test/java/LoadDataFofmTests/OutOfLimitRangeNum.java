@@ -73,8 +73,9 @@ public class OutOfLimitRangeNum extends LoadDataHelper{
 
         //проверка алерта Начального номера
         System.out.println("--------------");
-        checkFNumFieldAlert();
+        System.out.println("Начальный номер = " + docAttr.fNum);
         System.out.println("Конечный номер = " + docAttr.lNum);
+        checkFNumFieldAlert();
     }
 
     @Test //Конечный номер больше 999999
@@ -93,6 +94,7 @@ public class OutOfLimitRangeNum extends LoadDataHelper{
         //проверка алерта Начального номера
         System.out.println("--------------");
         System.out.println("Начальный номер = " + docAttr.fNum);
+        System.out.println("Конечный номер = " + docAttr.lNum);
         checkLNumFieldAlert();
     }
 
@@ -111,8 +113,10 @@ public class OutOfLimitRangeNum extends LoadDataHelper{
 
         // проверка алертов у полей номеров
         System.out.println("--------------");
-        checkFNumFieldAlert();
+        System.out.println("Начальный номер = " + docAttr.fNum);
         System.out.println("Конечный номер = " + docAttr.lNum);
+        checkFNumFieldAlert();
+
     }
 
 }
